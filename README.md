@@ -101,3 +101,5 @@ For the original idea, the help for developping in C# and the support and the id
 Give a ⭐️ if this project helped you!
 
 ## 📝 License
+
+This program is under [MIT](LICENSE.txt) License
