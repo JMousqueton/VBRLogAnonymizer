@@ -1,6 +1,7 @@
 {
   "MultiCore": true,
   "MaxFileInMemoryMB": 25,
+  "DicFile": "VBRLogDic.txt",
   "ReplacementItems": [
     {
       "Name": "VeeamServer",

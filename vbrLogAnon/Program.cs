@@ -1,13 +1,13 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
 using vbrLogAnon;
 
 string _sourceDir = "";
 string _destinationDir = "";
 string _configFile = Environment.CurrentDirectory + @"\config.json";
 
-
-
 Console.WriteLine("Veeam Backup logs Anonymizer C# edition v0.1");
+Console.WriteLine();
 if (CheckArgs())
 {
     Configuration newConf = Configuration.LoadConfiguration(_configFile);
@@ -26,11 +26,6 @@ if (CheckArgs())
     Console.WriteLine("Maximum in-memory file size: " + newConf.MaxFileInMemoryMB + "MB");
     Core.DoWork(newConf.MultiCore, _sourceDir,_destinationDir, newConf);
 }
-
-
-
-
-
 
 
 bool CheckArgs()

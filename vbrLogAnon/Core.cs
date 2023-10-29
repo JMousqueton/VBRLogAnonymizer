@@ -108,13 +108,13 @@ namespace vbrLogAnon
             int numFiles = 0;
             if (Directory.Exists(sourceDir)) {
                 Console.WriteLine("Scanning source directory structure and building target directory structure");
-                if (File.Exists(sourceDir + @"\anonDictionnary.txt")) {
+                if (File.Exists(sourceDir + @"\" + conf.DicFile)) {
                     try
                     {
-                        File.Delete(sourceDir + @"\anonDictionnary.txt");
+                        File.Delete(sourceDir + @"\" + conf.DicFile);
                     }
                     catch (Exception ex) {
-                        Console.WriteLine("Could not delete " + sourceDir + @"\anonDictionnary.txt. Error was: " + ex.Message);
+                        Console.WriteLine("Could not delete " + sourceDir + @"\" + conf.DicFile + " Error was: " + ex.Message);
                     }
                 }
                 var watch = System.Diagnostics.Stopwatch.StartNew();
@@ -154,7 +154,7 @@ namespace vbrLogAnon
                 Console.WriteLine();
                 watch.Stop();
                 Console.WriteLine("Done processing " + numFiles + " files in " + watch.ElapsedMilliseconds+"ms") ;
-                Core.WriteDictionnary(sourceDir);
+                Core.WriteDictionnary(sourceDir, conf);
                 Console.Write("Exiting now. Goodbye.");
             }
             else
@@ -173,16 +173,16 @@ namespace vbrLogAnon
             Environment.Exit(0);
         
         }
-        public static void WriteDictionnary(string sourceDir) {
+        public static void WriteDictionnary(string sourceDir, Configuration conf) {
             
             try
             {
-                StreamWriter dicFile = new StreamWriter(sourceDir + @"\anonDictionnary.txt",false);
+                StreamWriter dicFile = new StreamWriter(sourceDir + @"\" + conf.DicFile,false);
                 foreach (AnonymizationItem item in _anonymizationDictionnary.Values)
                 {
                     dicFile.WriteLine(item.ReplacementItemOriginalText + "," + item.ReplacementItemNewText);
                 }
-                Console.WriteLine("Dictionnary written at " + sourceDir + @"\anonDictionnary.txt");
+                Console.WriteLine("Dictionnary written at " + sourceDir + @"\" + conf.DicFile);
                 dicFile.Close();
                 dicFile.Dispose();
             }
@@ -200,7 +200,7 @@ namespace vbrLogAnon
             private string _replacementText = "";
             private bool _directoryStructure = false;
             private bool _useRandom = true;
-            private int _randomLength = 5;
+            private int _randomLength = 6;
             private string _replacementString = "*";
 
             public string Name
@@ -315,8 +315,8 @@ namespace vbrLogAnon
             }
             public static string GetRandomString(int length)
             {
-                Random random = new Random();   
-                const string pool = "abcdefghijklmnopqrstuvwxyz0123456789";
+                Random random = new Random();
+                const string pool = "abcdefghijklmnopqrstuvwxyz"; // 0123456789";
                 var chars = Enumerable.Range(0, length)
                     .Select(x => pool[random.Next(0, pool.Length)]);
                 return new string(chars.ToArray()); 
@@ -334,6 +334,7 @@ namespace vbrLogAnon
         private bool _multiCore = false;
         private bool _anonymizeDirectoryStructure = false;
         private long _maxFileInMemoryMB = 20;
+        private string _DicFile = "VBRLogDic.txt";
 
         public bool AnonymizeDirectoryStructure 
         {
@@ -344,6 +345,12 @@ namespace vbrLogAnon
         {
             get { return _multiCore; }
             set { _multiCore = value; }
+        }
+
+        public string DicFile
+        {
+            get { return _DicFile; }
+            set { _DicFile = value; }
         }
 
         public long MaxFileInMemoryMB
