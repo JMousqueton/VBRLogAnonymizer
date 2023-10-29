@@ -42,11 +42,39 @@ coming soon
 
 ## 🚀 Usage 
 
+Veeam Backup logs Anonymizer C# edition v0.1
+
+```
+Usage :
+-s <source dir> : absolute path to source dir containing Veeam logs.
+-d <destination dir> : absolute path to destination dir where anonymized logs will be written. Must exists beforehand.
+[-c <config file>] : absolute path to Json configuration file. If not present, will use config.json in the same dir as this executable.
+```
 
 ## 📝 Examples 
 
+```
+.\vbrLogAnon.exe -s C:\log -d C:\Ano\ -c 'C:\Users\JMOUSQU\vbrLogAnon\config.json'
+Source directory : C:\log
+Destination directory : C:\Ano\
+Multicore enabled. Possible high memory usage
+Maximum in-memory file size: 25MB
+Scanning source directory structure and building target directory structure
+Target directory structure built.
+Parsing files
+......................................................................................................................................
+Done processing 133 files in 6465ms
+Dictionnary written at C:\log\VBRLogDic.txt
+Exiting now. Goodbye.
+```
 
-## Author
+
+
+## Authors
+
+👤 **Eric Machabert**
+
+* LinkedIn [Eric Machabert](https://www.linkedin.com/in/eric-machabert-5069b616)
 
 👤 **Julien Mousqueton**
 
