@@ -1,4 +1,4 @@
-# Veeam Log Anonymizer 
+# Veeam Log Anonymizer in C#
 [![Twitter: JMousqueton](https://img.shields.io/twitter/follow/JMousqueton.svg?style=social)](https://twitter.com/JMousqueton)
 
 > __A tool to anonimyze your Veeam logs__
