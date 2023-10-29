@@ -1,0 +1,183 @@
+{
+  "MultiCore": true,
+  "MaxFileInMemoryMB": 25,
+  "ReplacementItems": [
+    {
+      "Name": "VeeamServer",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "HostName:\\s*\\[([^\\]]+)\\]",
+      "ReplacementText": "Hostname: ##PLACEHOLDER##"
+    },
+    {
+      "Name": "Location",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "Location:\\s*\\[(.*?)\\]",
+      "ReplacementText": "Location: ##PLACEHOLDER##"
+    },
+    {
+      "Name": "Email",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "Sending report to\\s([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,7}\\b)",
+      "ReplacementText": "Sending report to redacted@##PLACEHOLDER##.com"
+    },
+    {
+      "Name": "SMTPServer",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "SMTP Server '(.*?)'",
+      "ReplacementText": "SMTP Server ##PLACEHOLDER##"
+    },
+    {
+      "Name": "vCenterUser",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "UserName: '([^']+)'",
+      "ReplacementText": "UserName: ##PLACEHOLDER##"
+    },
+    {
+      "Name": "ESXiServer",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "Target host: \\[([^\\]]+)\\]",
+      "ReplacementText": "Target host: ##PLACEHOLDER##"
+    },
+    {
+      "Name": "VeeamUser",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "Log has been started by '(.*?)'",
+      "ReplacementText": "Log has been started by ##PLACEHOLDER##"
+    },
+    {
+      "Name": "vCenter",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "HostNameOrIpAddress: '(.*?)'",
+      "ReplacementText": "HostNameOrIpAddress: ##PLACEHOLDER##"
+    },
+    {
+      "Name": "FQDN computer",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "FQDN of the computer: \\[([^\\]]+)\\]",
+      "ReplacementText": "FQDN of the computer: ##PLACEHOLDER##"
+    },
+    {
+      "Name": "Service SPN",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "Service SPN: \\[([^\\]]+)\\]",
+      "ReplacementText": "Service SPN: ##PLACEHOLDER##"
+    },
+    {
+      "Name": "Users",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "(?:\\\\Users\\\\)([A-Za-z0-9-_.]+)",
+      "ReplacementText": "\\Users\\##PLACEHOLDER##"
+    },
+    {
+      "Name": "ProgramDataSetup",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "(?:\\\\ProgramData\\\\Veeam\\\\Setup\\\\)([A-Za-z0-9-_. ]+)",
+      "ReplacementText": "\\ProgramData\\Veeam\\Setup\\##PLACEHOLDER##"
+    },
+    {
+      "Name": "ProgramDataBackup",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "(?:\\\\ProgramData\\\\Veeam\\\\Backup\\\\)([A-Za-z0-9-_. ]+)",
+      "ReplacementText": "\\ProgramData\\Veeam\\Backup\\##PLACEHOLDER##"
+    },
+    {
+      "Name": "DomainAndName",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "(?:DomainAndName=&quot;)([A-Za-z0-9-_.]+\\\\[A-Za-z0-9-_. ]+)&",
+      "ReplacementText": "DomainAndName=&quot;##PLACEHOLDER##&"
+    },
+    {
+      "Name": "HostnameVSS",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "(?:hostname value=&quot;)([A-Za-z0-9-_.]+)&",
+      "ReplacementText": "hostname value=&quot;##PLACEHOLDER##&"
+    },
+    {
+      "Name": "WithHostnameVSS",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "(?:with host name: )([A-Za-z0-9-_.]+)",
+      "ReplacementText": "with host name: ##PLACEHOLDER##"
+    },
+    {
+      "Name": "VMNameVSS",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "(?:vmName value=&quot;)([A-Za-z0-9-_.]+)&",
+      "ReplacementText": "vmName value=&quot;##PLACEHOLDER##&"
+    },
+    {
+      "Name": "UsernameVSS",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "(?:user value=&quot;)([A-Za-z0-9-_.\\\\]+)&",
+      "ReplacementText": "user value=&quot;##PLACEHOLDER##&"
+    },
+    {
+      "Name": "HostVSS",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "(?:Host:  \\[)([A-Za-z0-9-_.\\\\]+)(?:\\]).",
+      "ReplacementText": "Host:  [##PLACEHOLDER##]."
+    },
+    {
+      "Name": "UsernameVSS2",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "(?:Account: \\[)([A-Za-z0-9-@_.\\\\]+)(?:\\]).",
+      "ReplacementText": "Account:  [##PLACEHOLDER##]."
+    },
+    {
+      "Name": "LoginVSS",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "(?:Login: \\[)([A-Za-z0-9-@_.\\\\]+)(?:\\]).",
+      "ReplacementText": "Login:  [##PLACEHOLDER##]."
+    },
+    {
+      "Name": "TargetMachineVSS",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "(?:Target machine: \\[)([A-Za-z0-9-_.\\\\]+)(?:\\]).",
+      "ReplacementText": "Target machine:  [##PLACEHOLDER##]."
+    },
+    {
+      "Name": "HostFQDNVSS",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "(?:HostAddrInfo Fqdn=&quot;)([A-Za-z0-9-_.]+)&",
+      "ReplacementText": "HostAddrInfo Fqdn=&quot;##PLACEHOLDER##&"
+    },
+    {
+      "Name": "HostnameConsole",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "ReplacementRegex": "(?:hostName ')([A-Za-z0-9-@_.\\\\]+)'.",
+      "ReplacementText": "hostName '##PLACEHOLDER##''"
+    },
+    {
+      "Name": "IPv4",
+      "DirectoryStructure": false,
+      "UseRandom": true,
+      "RandomLength": 3,
+      "ReplacementRegex": "(10(\\.(25[0-5]|2[0-4][0-9]|1[0-9]{1,2}|[0-9]{1,2})){3}|((172\\.(1[6-9]|2[0-9]|3[01]))|192\\.168)(\\.(25[0-5]|2[0-4][0-9]|1[0-9]{1,2}|[0-9]{1,2})){2})",
+      "ReplacementText": "99.99.99.##PLACEHOLDER##"
+    }
+
+  ]
+}
