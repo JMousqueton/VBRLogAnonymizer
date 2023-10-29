@@ -87,7 +87,7 @@ Exiting now. Goodbye.
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check [issues page](https://github.com/JMousqueton/Badware/issues).
+Feel free to check [issues page](https://github.com/JMousqueton/VBRLogAnonymizer/issues).
 
 ## 🙏🏻 Acknowledgements
 
